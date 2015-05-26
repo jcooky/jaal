@@ -1,0 +1,4 @@
+language: java
+
+install: /bin/true
+script: mvn clean package
