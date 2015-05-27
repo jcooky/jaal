@@ -2,13 +2,12 @@ language: java
 
 install: "/bin/true"
 script: mvn clean package
-after_script: echo $(cat target/VERSION.txt)
 
 deploy:
   provider: releases
   api_key:
     secure: rmlxGeIzrZEYE9thM+lZmUMYrqcuBL6oINt4hgCKOdovHKPKR5Owhrb5ZtR6uIzuPUSAkSvcqr1tVmKPxSFgy9ia+hQpEISCyhXIyn1xPMdph2PDIr5F3ZTcvlfPdrFOi0jO1t7t09gdsxJ+oIfjugVFzaAgvUwQkrim8sRC6Y9vUz0WkAZQgccobe+IV9rCEuoS4htLTM824BvPe90A1giI2OvWpzRXsR447jvEA6Crho0pEwnePqXMIPa5Genx16Y+aczNK7zgUR5N6masgLb0OUhLiNerllgVIHzYZK7dXSc7A4GRIAT7ra/TDHwspv8qi1JKYV1GSvnZ1TDJB3oQ4l7fvDeJeIPtQQOPgoW+fUgrBKZdUTZs/eaX8Vg68KRKkW6m9Qf0AaWjezlh+vqRGHa6wGim8See4e6dNHpZdN+Qe4v3dKoVgd/NlEvQQwhS+JN8sNJV3SF0OhIjHvMVGSsw6ZEebRkGYx6cdYNcSVjfOfh5itpMVjwIi0xLeld6QWo3M7E1YeRvaMdCyyptkku/HcbkB7Il8vn1HBiVFGx8sBUlvcYtIcxpNKzkXJN5rmPx+ioNgWV9IZYyywFeSYPHlJkj0oUWVltbT3GGdTHJJFIpDBhiXKChmJCjqkFAGHtO2UPOsnHgaDuY5o9heY6x81qOCpxnZFz8MRU=
-  file: jaal-agent/target/jaal-agent
+  file: jaal-agent/target/jaal-agent-$(cat target/VERSION.txt).jar
   skip_cleanup: true
   on:
     tags: true
