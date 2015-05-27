@@ -6,6 +6,7 @@
     <groupId>com.github.jcooky</groupId>
     <artifactId>jaal</artifactId>
     <version>0.1.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
   </parent>
 
   <artifactId>jaal-agent</artifactId>
