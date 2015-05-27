@@ -11,6 +11,7 @@
   </parent>
 
   <artifactId>jaal-sample-agent</artifactId>
+	<name>Jaal Agent Sample</name>
 
   <dependencies>
     <dependency>
