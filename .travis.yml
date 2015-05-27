@@ -1,9 +1,8 @@
 language: java
 
 install: "/bin/true"
-script: mvn clean test
+script: mvn clean verify
 
-before_deploy: mvn -DskipTests=true clean package
 deploy:
   provider: releases
   api_key:
