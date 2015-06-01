@@ -36,7 +36,7 @@ interface Constants {
   public static String initializeName = "$clinit" + METHOD_POSTFIX;
   /** Constant <code>initialize</code> */
   public static Method initialize = Method.getMethod("void " + initializeName + "()");
-  /** Constant <code>classInitName="<clinit>"</code> */
+  /** Constant <code>classInitName="&lt;clinit&gt;"</code> */
   public static String classInitName = "<clinit>";
   /** Constant <code>classInitDesc="()V"</code> */
   public static String classInitDesc = "()V";
