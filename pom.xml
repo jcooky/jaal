@@ -22,9 +22,9 @@
     </contributor>
   </contributors>
   <scm>
-    <connection>scm:git:git@github.com:jcooky/jaal.git</connection>
-    <developerConnection>scm:git:git@github.com:jcooky/jaal.git</developerConnection>
-    <url>https://github.com/jcooky/jaal.git</url>
+    <connection>scm:git:https://github.com/jcooky/jaal.git</connection>
+    <developerConnection>scm:git:https://github.com/jcooky/jaal.git</developerConnection>
+    <url>https://github.com/jcooky/jaal</url>
   </scm>
   <ciManagement>
     <system>Travis-CI</system>
