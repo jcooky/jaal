@@ -20,7 +20,7 @@ package com.github.jcooky.jaal.agent.bytecode;
  * #L%
  */
 
-import org.objectweb.asm.Opcodes;
+import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
 /**
  * @author jeff@shiftone.org (Jeff Drost)

@@ -20,10 +20,10 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
  * #L%
  */
 
-import org.objectweb.asm.Type;
-import org.objectweb.asm.commons.Method;
+import com.github.jcooky.jaal.org.objectweb.asm.commons.*;
+import com.github.jcooky.jaal.org.objectweb.asm.*;
 
-public interface Constants {
+interface Constants {
 
   public static final String METHOD_POSTFIX = "_$jaal";
   public static final String HANDLER_PREFIX = "jaal$";

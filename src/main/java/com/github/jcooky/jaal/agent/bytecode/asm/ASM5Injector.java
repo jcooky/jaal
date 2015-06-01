@@ -25,11 +25,12 @@ import com.github.jcooky.jaal.agent.config.InjectorStrategy;
 import com.github.jcooky.jaal.agent.config.ProxyInjectorStrategy;
 import com.github.jcooky.jaal.agent.config.ReplaceInjectorStrategy;
 import com.github.jcooky.jaal.agent.criteria.MethodCriteria;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.commons.SerialVersionUIDAdder;
-import org.objectweb.asm.util.CheckClassAdapter;
+
+import com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.ClassReader;
+import com.github.jcooky.jaal.org.objectweb.asm.ClassWriter;
+import com.github.jcooky.jaal.org.objectweb.asm.util.*;
+import com.github.jcooky.jaal.org.objectweb.asm.commons.*;
 
 /**
  * Created by JCooky on 15. 3. 3..

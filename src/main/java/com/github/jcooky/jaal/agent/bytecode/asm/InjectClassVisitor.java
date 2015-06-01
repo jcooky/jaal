@@ -24,10 +24,10 @@ import com.github.jcooky.jaal.agent.bytecode.InjectorException;
 import com.github.jcooky.jaal.agent.bytecode.Modifier;
 import com.github.jcooky.jaal.util.VersionUtils;
 import com.github.jcooky.jaal.agent.config.ProxyInjectorStrategy;
-import org.objectweb.asm.*;
-import org.objectweb.asm.commons.GeneratorAdapter;
-import org.objectweb.asm.commons.Method;
-import org.objectweb.asm.tree.AnnotationNode;
+import com.github.jcooky.jaal.org.objectweb.asm.*;
+import com.github.jcooky.jaal.org.objectweb.asm.commons.GeneratorAdapter;
+import com.github.jcooky.jaal.org.objectweb.asm.commons.Method;
+import com.github.jcooky.jaal.org.objectweb.asm.tree.AnnotationNode;
 
 import java.util.ArrayList;
 import java.util.Date;

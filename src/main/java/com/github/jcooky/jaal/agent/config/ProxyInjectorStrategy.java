@@ -21,7 +21,6 @@ package com.github.jcooky.jaal.agent.config;
  */
 
 import com.github.jcooky.jaal.agent.criteria.MethodCriteria;
-import com.google.common.base.Objects;
 
 /**
  * Created by JCooky on 15. 2. 25..
@@ -53,25 +52,4 @@ public class ProxyInjectorStrategy implements InjectorStrategy {
     return methodCriteria.isMatch(className);
   }
 
-  @Override
-  public String toString() {
-    return Objects.toStringHelper(this)
-        .add("methodCriteria", methodCriteria)
-        .add("factoryClass", factoryClass)
-        .toString();
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ProxyInjectorStrategy that = (ProxyInjectorStrategy) o;
-    return Objects.equal(methodCriteria, that.methodCriteria) &&
-        Objects.equal(factoryClass, that.factoryClass);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hashCode(methodCriteria, factoryClass);
-  }
 }

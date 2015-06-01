@@ -25,10 +25,10 @@ import com.github.jcooky.jaal.agent.config.InjectorStrategy;
 import com.github.jcooky.jaal.agent.config.ProxyInjectorStrategy;
 import com.github.jcooky.jaal.agent.criteria.MethodCriteria;
 import com.github.jcooky.jaal.agent.transformer.SelectClassFileTransformer;
-import com.google.common.collect.Sets;
 
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.Instrumentation;
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -39,7 +39,7 @@ public class JaalAgentBootstrap {
   private Configuration configuration = new Configuration("jaal-agent-bootstrap");
   private String pkg;
 
-  public JaalAgentBootstrap basePackage(String pkg) {
+  public JaalAgentBootstrap excludePackage(String pkg) {
     this.pkg = pkg;
     return this;
   }
@@ -69,6 +69,6 @@ public class JaalAgentBootstrap {
   }
 
   public void build(Instrumentation inst) {
-    inst.addTransformer(new SelectClassFileTransformer(pkg, Sets.newHashSet(configuration)));
+    inst.addTransformer(new SelectClassFileTransformer(pkg, Arrays.asList(configuration)));
   }
 }

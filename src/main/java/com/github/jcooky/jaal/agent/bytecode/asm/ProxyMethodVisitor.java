@@ -21,12 +21,12 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
  */
 
 import com.github.jcooky.jaal.agent.bytecode.Modifier;
-import org.objectweb.asm.Label;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.Type;
-import org.objectweb.asm.commons.GeneratorAdapter;
-import org.objectweb.asm.commons.Method;
+import com.github.jcooky.jaal.org.objectweb.asm.Label;
+import com.github.jcooky.jaal.org.objectweb.asm.MethodVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
+import com.github.jcooky.jaal.org.objectweb.asm.Type;
+import com.github.jcooky.jaal.org.objectweb.asm.commons.GeneratorAdapter;
+import com.github.jcooky.jaal.org.objectweb.asm.commons.Method;
 
 import java.io.PrintStream;
 

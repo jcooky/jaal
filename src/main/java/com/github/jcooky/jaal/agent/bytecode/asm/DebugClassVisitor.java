@@ -20,12 +20,12 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
  * #L%
  */
 
-import org.objectweb.asm.AnnotationVisitor;
-import org.objectweb.asm.Attribute;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.FieldVisitor;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
+import com.github.jcooky.jaal.org.objectweb.asm.AnnotationVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.Attribute;
+import com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.FieldVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.MethodVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
 public class DebugClassVisitor extends ClassVisitor {
   

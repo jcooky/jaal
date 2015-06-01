@@ -22,7 +22,6 @@ package com.github.jcooky.jaal.agent.transformer;
 
 import com.github.jcooky.jaal.agent.config.Configuration;
 import com.github.jcooky.jaal.agent.config.InjectorStrategy;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileNotFoundException;
 import java.lang.instrument.ClassFileTransformer;
@@ -39,7 +38,7 @@ public class SelectClassFileTransformer implements ClassFileTransformer {
   private final String basePackage;
   private List<InjectorStrategy> injectorStrategies = new ArrayList<InjectorStrategy>(4);
 
-  public SelectClassFileTransformer(String basePackage, Set<Configuration> configurations) {
+  public SelectClassFileTransformer(String basePackage, Iterable<? extends Configuration> configurations) {
     this.basePackage = basePackage;
     for (Configuration configuration : configurations) {
       injectorStrategies.addAll(configuration.getInjectorStrategies());
@@ -51,7 +50,8 @@ public class SelectClassFileTransformer implements ClassFileTransformer {
     className = className.replace('/', '.');
     try {
 
-      if (!StringUtils.startsWithAny("com.github.jcooky.jaal", basePackage)) {
+      if (!className.startsWith("com.github.jcooky.jaal") &&
+          (basePackage == null || !className.startsWith(basePackage))) {
 
         debug(className, bytes);
 

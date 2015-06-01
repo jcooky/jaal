@@ -21,9 +21,9 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
  */
 
 import com.github.jcooky.jaal.agent.config.ReplaceInjectorStrategy;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
+import com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.MethodVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
 /**
  * Created by JCooky on 15. 3. 25..

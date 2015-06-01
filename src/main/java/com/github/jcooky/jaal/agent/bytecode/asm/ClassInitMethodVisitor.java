@@ -20,8 +20,8 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
  * #L%
  */
 
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
+import com.github.jcooky.jaal.org.objectweb.asm.MethodVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
 /**
  * All this visitor does is add a single instruction to the start of the static

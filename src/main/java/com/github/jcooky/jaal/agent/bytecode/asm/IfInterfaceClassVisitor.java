@@ -21,8 +21,8 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
  */
 
 import com.github.jcooky.jaal.agent.bytecode.Modifier;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.Opcodes;
+import com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor;
+import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
 /**
  * @author jeff@shiftone.org (Jeff Drost)
