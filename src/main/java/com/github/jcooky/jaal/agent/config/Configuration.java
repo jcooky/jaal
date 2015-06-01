@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.config;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -24,24 +24,47 @@ import java.util.HashSet;
 
 /**
  * Created by JCooky on 15. 2. 25..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public class Configuration {
 
   private String name;
   private HashSet<InjectorStrategy> injectorStrategies = new HashSet<InjectorStrategy>();
 
+  /**
+   * <p>Constructor for Configuration.</p>
+   *
+   * @param name a {@link java.lang.String} object.
+   */
   public Configuration(String name) {
     this.name = name;
   }
 
+  /**
+   * <p>Setter for the field <code>name</code>.</p>
+   *
+   * @param name a {@link java.lang.String} object.
+   */
   public void setName(String name) {
     this.name = name;
   }
 
+  /**
+   * <p>Getter for the field <code>name</code>.</p>
+   *
+   * @return a {@link java.lang.String} object.
+   */
   public String getName() {
     return this.name;
   }
 
+  /**
+   * <p>Getter for the field <code>injectorStrategies</code>.</p>
+   *
+   * @return a {@link java.util.HashSet} object.
+   */
   public HashSet<InjectorStrategy> getInjectorStrategies() {
     return this.injectorStrategies;
   }

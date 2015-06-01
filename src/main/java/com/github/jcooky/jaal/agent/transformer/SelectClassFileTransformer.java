@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.transformer;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -33,11 +33,20 @@ import java.util.Set;
 
 /**
  * Created by JCooky on 15. 2. 11..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public class SelectClassFileTransformer implements ClassFileTransformer {
   private final String basePackage;
   private List<InjectorStrategy> injectorStrategies = new ArrayList<InjectorStrategy>(4);
 
+  /**
+   * <p>Constructor for SelectClassFileTransformer.</p>
+   *
+   * @param basePackage a {@link java.lang.String} object.
+   * @param configurations a {@link java.lang.Iterable} object.
+   */
   public SelectClassFileTransformer(String basePackage, Iterable<? extends Configuration> configurations) {
     this.basePackage = basePackage;
     for (Configuration configuration : configurations) {
@@ -45,6 +54,7 @@ public class SelectClassFileTransformer implements ClassFileTransformer {
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public byte[] transform(ClassLoader classLoader, String className, Class<?> aClass, ProtectionDomain protectionDomain, byte[] bytes) throws IllegalClassFormatException {
     className = className.replace('/', '.');

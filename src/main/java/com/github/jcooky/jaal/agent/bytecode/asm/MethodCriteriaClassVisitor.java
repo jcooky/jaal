@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -26,7 +26,10 @@ import com.github.jcooky.jaal.org.objectweb.asm.MethodVisitor;
 import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
 /**
+ * <p>MethodCriteriaClassVisitor class.</p>
+ *
  * @author jeff@shiftone.org (Jeff Drost)
+ * @version $Id: $Id
  */
 public class MethodCriteriaClassVisitor extends ClassVisitor {
 
@@ -35,16 +38,28 @@ public class MethodCriteriaClassVisitor extends ClassVisitor {
   private MethodCriteria criteria;
   private String className;
 
+  /**
+   * <p>Constructor for MethodCriteriaClassVisitor.</p>
+   *
+   * @param injector a {@link com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor} object.
+   * @param bypass a {@link com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor} object.
+   */
   public MethodCriteriaClassVisitor(ClassVisitor injector, ClassVisitor bypass) {
     super(Opcodes.ASM5, null);
     this.bypass = bypass;
     this.injector = injector;
   }
 
+  /**
+   * <p>Setter for the field <code>criteria</code>.</p>
+   *
+   * @param criteria a {@link com.github.jcooky.jaal.agent.criteria.MethodCriteria} object.
+   */
   public void setCriteria(MethodCriteria criteria) {
     this.criteria = criteria;
   }
 
+  /** {@inheritDoc} */
   @Override
   public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
 
@@ -75,6 +90,8 @@ public class MethodCriteriaClassVisitor extends ClassVisitor {
   }
 
   /**
+   * {@inheritDoc}
+   *
    * when this method is called MethodCriteria.isMatch(className, methodName,
    * ...) is checked to see if any injection is necessary for this method. If
    * not, then the bypass visitor is used. Otherwise, the default visitor is
@@ -89,6 +106,7 @@ public class MethodCriteriaClassVisitor extends ClassVisitor {
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public void visitEnd() {
     super.visitEnd();

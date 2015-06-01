@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.config;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -20,6 +20,12 @@ package com.github.jcooky.jaal.agent.config;
  * #L%
  */
 
+/**
+ * <p>ClassLoaderScope class.</p>
+ *
+ * @author JCooky
+ * @version $Id: $Id
+ */
 public enum ClassLoaderScope {
   SYSTEM(0), BOOTSTRAP(1);
 
@@ -29,6 +35,11 @@ public enum ClassLoaderScope {
     this.value = value;
   }
 
+  /**
+   * <p>Getter for the field <code>value</code>.</p>
+   *
+   * @return a int.
+   */
   public int getValue() {
     return value;
   }

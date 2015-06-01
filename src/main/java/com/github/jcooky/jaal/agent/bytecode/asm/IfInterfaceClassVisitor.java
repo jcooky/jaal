@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -25,7 +25,10 @@ import com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor;
 import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
 /**
+ * <p>IfInterfaceClassVisitor class.</p>
+ *
  * @author jeff@shiftone.org (Jeff Drost)
+ * @version $Id: $Id
  */
 public class IfInterfaceClassVisitor extends ClassVisitor {
 
@@ -33,12 +36,19 @@ public class IfInterfaceClassVisitor extends ClassVisitor {
     private final ClassVisitor interfaceClassVisitor;
     private final ClassVisitor concreteClassVisitor;
 
+    /**
+     * <p>Constructor for IfInterfaceClassVisitor.</p>
+     *
+     * @param interfaceClassVisitor a {@link com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor} object.
+     * @param concreteClassVisitor a {@link com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor} object.
+     */
     public IfInterfaceClassVisitor(ClassVisitor interfaceClassVisitor, ClassVisitor concreteClassVisitor) {
         super(Opcodes.ASM5, null);
         this.interfaceClassVisitor = interfaceClassVisitor;
         this.concreteClassVisitor = concreteClassVisitor;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
         if (Modifier.isInterface(access)) {
@@ -52,6 +62,7 @@ public class IfInterfaceClassVisitor extends ClassVisitor {
         super.visit(version, access, name, signature, superName, interfaces);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visitEnd() {
         super.visitEnd();

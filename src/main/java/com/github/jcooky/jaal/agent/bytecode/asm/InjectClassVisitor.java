@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -33,6 +33,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * <p>InjectClassVisitor class.</p>
+ *
+ * @author JCooky
+ * @version $Id: $Id
+ */
 public class InjectClassVisitor extends ClassVisitor implements Constants, Opcodes {
 
   private final ProxyInjectorStrategy injectorStrategy;
@@ -41,11 +47,18 @@ public class InjectClassVisitor extends ClassVisitor implements Constants, Opcod
   private Type classType;
   private GeneratorAdapter initializer;
 
+  /**
+   * <p>Constructor for InjectClassVisitor.</p>
+   *
+   * @param injectorStrategy a {@link com.github.jcooky.jaal.agent.config.ProxyInjectorStrategy} object.
+   * @param visitor a {@link com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor} object.
+   */
   public InjectClassVisitor(ProxyInjectorStrategy injectorStrategy, ClassVisitor visitor) {
     super(Opcodes.ASM5, visitor);
     this.injectorStrategy = injectorStrategy;
   }
 
+  /** {@inheritDoc} */
   @Override
   public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
     handlerCount = 0;
@@ -67,6 +80,7 @@ public class InjectClassVisitor extends ClassVisitor implements Constants, Opcod
     return initializer;
   }
 
+  /** {@inheritDoc} */
   @Override
   public void visitEnd() {
     initializer.returnValue();
@@ -83,6 +97,7 @@ public class InjectClassVisitor extends ClassVisitor implements Constants, Opcod
     commentField.visitEnd();
   }
 
+  /** {@inheritDoc} */
   public FieldVisitor visitField(final int access, final String name, final String desc, final String signature,
                                  final Object value) {
     if (name.equals(COMMENT_FIELD_NAME)) {
@@ -105,6 +120,12 @@ public class InjectClassVisitor extends ClassVisitor implements Constants, Opcod
     initializer.putStatic(classType, fieldName, InvocationHandler.TYPE);
   }
 
+  /**
+   * <p>pushThis.</p>
+   *
+   * @param adapter a {@link com.github.jcooky.jaal.org.objectweb.asm.commons.GeneratorAdapter} object.
+   * @param isStatic a boolean.
+   */
   public void pushThis(GeneratorAdapter adapter, boolean isStatic) {
     if (isStatic) {
       adapter.push("test");
@@ -113,6 +134,7 @@ public class InjectClassVisitor extends ClassVisitor implements Constants, Opcod
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public MethodVisitor visitMethod(final int access, final String name,
                                    final String descriptor, final String signature,

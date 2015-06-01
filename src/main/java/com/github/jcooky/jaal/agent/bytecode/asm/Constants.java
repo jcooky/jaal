@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -25,14 +25,22 @@ import com.github.jcooky.jaal.org.objectweb.asm.*;
 
 interface Constants {
 
+  /** Constant <code>METHOD_POSTFIX="_$jaal"</code> */
   public static final String METHOD_POSTFIX = "_$jaal";
+  /** Constant <code>HANDLER_PREFIX="jaal$"</code> */
   public static final String HANDLER_PREFIX = "jaal$";
+  /** Constant <code>COMMENT_FIELD_NAME="$jaal_was_here"</code> */
   public static final String COMMENT_FIELD_NAME = "$jaal_was_here";
 
+  /** Constant <code>initializeName="$clinit + METHOD_POSTFIX"</code> */
   public static String initializeName = "$clinit" + METHOD_POSTFIX;
+  /** Constant <code>initialize</code> */
   public static Method initialize = Method.getMethod("void " + initializeName + "()");
+  /** Constant <code>classInitName="<clinit>"</code> */
   public static String classInitName = "<clinit>";
+  /** Constant <code>classInitDesc="()V"</code> */
   public static String classInitDesc = "()V";
+  /** Constant <code>classInit</code> */
   public static Method classInit = Method.getMethod("void " + classInitName + "()");
 
   public interface Clazz {

@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.java;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%

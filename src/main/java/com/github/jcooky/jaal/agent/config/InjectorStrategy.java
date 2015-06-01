@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.config;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -22,9 +22,23 @@ package com.github.jcooky.jaal.agent.config;
 
 /**
  * Created by JCooky on 15. 2. 25..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public interface InjectorStrategy {
+  /**
+   * <p>getType.</p>
+   *
+   * @return a {@link com.github.jcooky.jaal.agent.config.InjectorStrategyType} object.
+   */
   InjectorStrategyType getType();
 
+  /**
+   * <p>isMatch.</p>
+   *
+   * @param className a {@link java.lang.String} object.
+   * @return a boolean.
+   */
   boolean isMatch(String className);
 }

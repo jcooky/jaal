@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -26,7 +26,10 @@ import com.github.jcooky.jaal.org.objectweb.asm.MethodVisitor;
 import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
 /**
+ * <p>ClassInitClassVisitor class.</p>
+ *
  * @author jeff@shiftone.org (Jeff Drost)
+ * @version $Id: $Id
  */
 public class ClassInitClassVisitor extends ClassVisitor implements Constants, Opcodes {
 
@@ -34,10 +37,16 @@ public class ClassInitClassVisitor extends ClassVisitor implements Constants, Op
     private boolean clinitVisited = false;
     private String className;
 
+    /**
+     * <p>Constructor for ClassInitClassVisitor.</p>
+     *
+     * @param cv a {@link com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor} object.
+     */
     public ClassInitClassVisitor(final ClassVisitor cv) {
         super(Opcodes.ASM5, cv);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visit(final int version, final int access, final String name, final String signature,
             final String superName, final String[] interfaces) {
@@ -48,6 +57,7 @@ public class ClassInitClassVisitor extends ClassVisitor implements Constants, Op
         super.visit(version, access, name, signature, superName, interfaces);
     }
 
+    /** {@inheritDoc} */
     @Override
     public MethodVisitor visitMethod(final int access, final String name, final String desc, final String signature,
             final String[] exceptions) {
@@ -62,6 +72,7 @@ public class ClassInitClassVisitor extends ClassVisitor implements Constants, Op
         return visitor;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visitEnd() {
 

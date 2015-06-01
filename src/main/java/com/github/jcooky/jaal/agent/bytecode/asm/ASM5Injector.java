@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -34,15 +34,24 @@ import com.github.jcooky.jaal.org.objectweb.asm.commons.*;
 
 /**
  * Created by JCooky on 15. 3. 3..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public class ASM5Injector implements Injector {
 
   private InjectorStrategy injectorStrategy;
 
+  /**
+   * <p>Constructor for ASM5Injector.</p>
+   *
+   * @param injectorStrategy a {@link com.github.jcooky.jaal.agent.config.InjectorStrategy} object.
+   */
   public ASM5Injector(InjectorStrategy injectorStrategy) {
     this.injectorStrategy = injectorStrategy;
   }
 
+  /** {@inheritDoc} */
   @Override
   public byte[] inject(byte[] bytes) {
     ClassReader cr = new ClassReader(bytes);

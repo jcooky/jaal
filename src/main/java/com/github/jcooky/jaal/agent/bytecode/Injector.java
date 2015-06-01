@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -24,8 +24,16 @@ package com.github.jcooky.jaal.agent.bytecode;
  * JRat can swap out bytecode manipulation libraries - each supported library
  * must have a InjectorStrategy implementation.
  *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public interface Injector {
     
+    /**
+     * <p>inject.</p>
+     *
+     * @param inputClassData an array of byte.
+     * @return an array of byte.
+     */
     byte[] inject(byte[] inputClassData);
 }

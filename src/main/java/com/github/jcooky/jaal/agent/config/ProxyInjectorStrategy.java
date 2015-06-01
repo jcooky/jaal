@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.config;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -24,29 +24,50 @@ import com.github.jcooky.jaal.agent.criteria.MethodCriteria;
 
 /**
  * Created by JCooky on 15. 2. 25..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public class ProxyInjectorStrategy implements InjectorStrategy {
   private MethodCriteria methodCriteria;
   private String factoryClass;
 
+  /**
+   * <p>Constructor for ProxyInjectorStrategy.</p>
+   *
+   * @param methodCriteria a {@link com.github.jcooky.jaal.agent.criteria.MethodCriteria} object.
+   * @param factoryClass a {@link java.lang.String} object.
+   */
   public ProxyInjectorStrategy(MethodCriteria methodCriteria, String factoryClass) {
     this.methodCriteria = methodCriteria;
     this.factoryClass = factoryClass;
   }
 
+  /**
+   * <p>Getter for the field <code>methodCriteria</code>.</p>
+   *
+   * @return a {@link com.github.jcooky.jaal.agent.criteria.MethodCriteria} object.
+   */
   public MethodCriteria getMethodCriteria() {
     return this.methodCriteria;
   }
 
+  /**
+   * <p>Getter for the field <code>factoryClass</code>.</p>
+   *
+   * @return a {@link java.lang.String} object.
+   */
   public String getFactoryClass() {
     return this.factoryClass;
   }
 
+  /** {@inheritDoc} */
   @Override
   public InjectorStrategyType getType() {
     return InjectorStrategyType.PROXY;
   }
 
+  /** {@inheritDoc} */
   @Override
   public boolean isMatch(String className) {
     return methodCriteria.isMatch(className);

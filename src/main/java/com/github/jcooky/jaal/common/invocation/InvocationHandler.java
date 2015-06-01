@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.common.invocation;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -22,7 +22,19 @@ package com.github.jcooky.jaal.common.invocation;
 
 /**
  * Created by JCooky on 15. 2. 10..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public interface InvocationHandler {
+  /**
+   * <p>invoke.</p>
+   *
+   * @param self a {@link java.lang.Object} object.
+   * @param method a {@link java.lang.reflect.Method} object.
+   * @param args an array of {@link java.lang.Object} objects.
+   * @return a {@link java.lang.Object} object.
+   * @throws java.lang.Throwable if any.
+   */
   public Object invoke(Object self, java.lang.reflect.Method method, Object[] args) throws Throwable;
 }

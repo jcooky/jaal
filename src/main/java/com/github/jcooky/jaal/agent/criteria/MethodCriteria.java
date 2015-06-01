@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.criteria;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -20,13 +20,31 @@ package com.github.jcooky.jaal.agent.criteria;
  * #L%
  */
 
+/**
+ * <p>MethodCriteria interface.</p>
+ *
+ * @author JCooky
+ * @version $Id: $Id
+ */
 public interface MethodCriteria {
 
 //  boolean instanceOf(String superName, String []interfaces);
 
+  /**
+   * <p>isMatch.</p>
+   *
+   * @param className a {@link java.lang.String} object.
+   * @return a boolean.
+   */
   boolean isMatch(String className);
   /**
    * should a method with these attributes be matched?
+   *
+   * @param className a {@link java.lang.String} object.
+   * @param methodName a {@link java.lang.String} object.
+   * @param signature a {@link java.lang.String} object.
+   * @param modifiers a long.
+   * @return a boolean.
    */
   boolean isMatch(String className, String methodName, String signature, long modifiers);
 }

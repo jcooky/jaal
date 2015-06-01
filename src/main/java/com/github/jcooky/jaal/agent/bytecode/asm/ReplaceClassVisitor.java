@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -27,17 +27,27 @@ import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
 /**
  * Created by JCooky on 15. 3. 25..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public class ReplaceClassVisitor extends ClassVisitor implements Opcodes {
   private final String targetClass;
   private final String replacementClass;
 
+  /**
+   * <p>Constructor for ReplaceClassVisitor.</p>
+   *
+   * @param injectorStrategy a {@link com.github.jcooky.jaal.agent.config.ReplaceInjectorStrategy} object.
+   * @param visitor a {@link com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor} object.
+   */
   public ReplaceClassVisitor(ReplaceInjectorStrategy injectorStrategy, ClassVisitor visitor) {
     super(ASM5, visitor);
     this.targetClass = injectorStrategy.getTargetClass().replace('.', '/');
     this.replacementClass = injectorStrategy.getReplacementClass().replace('.', '/');
   }
 
+  /** {@inheritDoc} */
   @Override
   public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
     return new MethodVisitor(ASM5, super.visitMethod(access, name, desc, signature, exceptions)) {

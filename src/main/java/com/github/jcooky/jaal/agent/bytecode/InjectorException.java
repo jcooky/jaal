@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -22,12 +22,29 @@ package com.github.jcooky.jaal.agent.bytecode;
 
 import com.github.jcooky.jaal.agent.JaalException;
 
+/**
+ * <p>InjectorException class.</p>
+ *
+ * @author JCooky
+ * @version $Id: $Id
+ */
 public class InjectorException extends JaalException {
 
+    /**
+     * <p>Constructor for InjectorException.</p>
+     *
+     * @param message a {@link java.lang.String} object.
+     */
     public InjectorException(String message) {
         super(message);
     }
 
+    /**
+     * <p>Constructor for InjectorException.</p>
+     *
+     * @param message a {@link java.lang.String} object.
+     * @param cause a {@link java.lang.Throwable} object.
+     */
     public InjectorException(String message, Throwable cause) {
         super(message, cause);
     }

@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -22,19 +22,41 @@ package com.github.jcooky.jaal.agent;
 
 /**
  * Created by JCooky on 15. 2. 6..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public class JaalException extends RuntimeException {
+  /**
+   * <p>Constructor for JaalException.</p>
+   */
   public JaalException() {
   }
 
+  /**
+   * <p>Constructor for JaalException.</p>
+   *
+   * @param s a {@link java.lang.String} object.
+   */
   public JaalException(String s) {
     super(s);
   }
 
+  /**
+   * <p>Constructor for JaalException.</p>
+   *
+   * @param s a {@link java.lang.String} object.
+   * @param throwable a {@link java.lang.Throwable} object.
+   */
   public JaalException(String s, Throwable throwable) {
     super(s, throwable);
   }
 
+  /**
+   * <p>Constructor for JaalException.</p>
+   *
+   * @param throwable a {@link java.lang.Throwable} object.
+   */
   public JaalException(Throwable throwable) {
     super(throwable);
   }

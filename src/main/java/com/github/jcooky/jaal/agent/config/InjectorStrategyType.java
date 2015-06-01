@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.config;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -22,6 +22,9 @@ package com.github.jcooky.jaal.agent.config;
 
 /**
  * Created by JCooky on 15. 3. 25..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public enum InjectorStrategyType {
   REPLACE,

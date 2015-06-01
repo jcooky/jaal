@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.util;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -25,6 +25,9 @@ import java.util.jar.Manifest;
 
 /**
  * Created by JCooky on 15. 3. 8..
+ *
+ * @author JCooky
+ * @version $Id: $Id
  */
 public class VersionUtils {
   private static VersionUtils versionUtil = null;
@@ -53,14 +56,29 @@ public class VersionUtils {
     return versionUtil;
   }
 
+  /**
+   * <p>Getter for the field <code>version</code>.</p>
+   *
+   * @return a {@link java.lang.String} object.
+   */
   public static String getVersion() {
     return getVersionUtil().version;
   }
 
+  /**
+   * <p>Getter for the field <code>builtBy</code>.</p>
+   *
+   * @return a {@link java.lang.String} object.
+   */
   public static String getBuiltBy() {
     return getVersionUtil().builtBy;
   }
 
+  /**
+   * <p>getBuiltOn.</p>
+   *
+   * @return a {@link java.lang.String} object.
+   */
   public static String getBuiltOn() {
     return getVersionUtil().buildOn;
   }

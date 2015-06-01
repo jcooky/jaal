@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -27,12 +27,24 @@ import com.github.jcooky.jaal.org.objectweb.asm.FieldVisitor;
 import com.github.jcooky.jaal.org.objectweb.asm.MethodVisitor;
 import com.github.jcooky.jaal.org.objectweb.asm.Opcodes;
 
+/**
+ * <p>DebugClassVisitor class.</p>
+ *
+ * @author JCooky
+ * @version $Id: $Id
+ */
 public class DebugClassVisitor extends ClassVisitor {
   
+    /**
+     * <p>Constructor for DebugClassVisitor.</p>
+     *
+     * @param cv a {@link com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor} object.
+     */
     public DebugClassVisitor(final ClassVisitor cv) {
         super(Opcodes.ASM5, cv);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visit(final int version, final int access, final String name, final String signature,
             final String superName, final String[] interfaces) {
@@ -42,35 +54,41 @@ public class DebugClassVisitor extends ClassVisitor {
         super.visit(version, access, name, signature, superName, interfaces);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visitSource(final String source, final String debug) {
         System.out.println("visitSource " + source + " " + debug);
         super.visitSource(source, debug);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visitOuterClass(final String owner, final String name, final String desc) {
         System.out.println("visitOuterClass " + owner + " " + name + " " + desc);
         super.visitOuterClass(owner, name, desc);
     }
 
+    /** {@inheritDoc} */
     @Override
     public AnnotationVisitor visitAnnotation(final String desc, final boolean visible) {
         return super.visitAnnotation(desc, visible);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visitAttribute(final Attribute attr) {
         System.out.println("visitAttribute " + attr);
         super.visitAttribute(attr);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visitInnerClass(final String name, final String outerName, final String innerName, final int access) {
         System.out.println("visitInnerClass " + name + " " + outerName + " " + innerName + " " + access);
         super.visitInnerClass(name, outerName, innerName, access);
     }
 
+    /** {@inheritDoc} */
     @Override
     public FieldVisitor visitField(final int access, final String name, final String desc, final String signature,
             final Object value) {
@@ -80,6 +98,7 @@ public class DebugClassVisitor extends ClassVisitor {
         return super.visitField(access, name, desc, signature, value);
     }
 
+    /** {@inheritDoc} */
     @Override
     public MethodVisitor visitMethod(final int access, final String name, final String desc, final String signature,
             final String[] exceptions) {
@@ -89,6 +108,7 @@ public class DebugClassVisitor extends ClassVisitor {
         return super.visitMethod(access, name, desc, signature, exceptions);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void visitEnd() {
         System.out.println("visitEnd");

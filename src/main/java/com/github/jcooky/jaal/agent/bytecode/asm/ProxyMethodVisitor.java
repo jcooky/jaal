@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -31,7 +31,10 @@ import com.github.jcooky.jaal.org.objectweb.asm.commons.Method;
 import java.io.PrintStream;
 
 /**
+ * <p>ProxyMethodVisitor class.</p>
+ *
  * @author jeff@shiftone.org (Jeff Drost)
+ * @version $Id: $Id
  */
 public class ProxyMethodVisitor extends GeneratorAdapter implements Constants, Opcodes {
 
@@ -43,6 +46,16 @@ public class ProxyMethodVisitor extends GeneratorAdapter implements Constants, O
   private final String targetMethodName;
   private final Method method;
 
+  /**
+   * <p>Constructor for ProxyMethodVisitor.</p>
+   *
+   * @param access a int.
+   * @param method a {@link com.github.jcooky.jaal.org.objectweb.asm.commons.Method} object.
+   * @param mv a {@link com.github.jcooky.jaal.org.objectweb.asm.MethodVisitor} object.
+   * @param classType a {@link com.github.jcooky.jaal.org.objectweb.asm.Type} object.
+   * @param targetMethodName a {@link java.lang.String} object.
+   * @param handlerFieldName a {@link java.lang.String} object.
+   */
   public ProxyMethodVisitor(int access, Method method, MethodVisitor mv, Type classType, String targetMethodName,
                             String handlerFieldName) {
 
@@ -79,6 +92,9 @@ public class ProxyMethodVisitor extends GeneratorAdapter implements Constants, O
     invokeVirtual(Type.getType(PrintStream.class), Method.getMethod("void println(Object)"));
   }
 
+  /**
+   * <p>visitCode.</p>
+   */
   public void visitCode() {
     super.visitCode();
 

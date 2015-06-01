@@ -2,7 +2,7 @@ package com.github.jcooky.jaal.common.invocation;
 
 /*
  * #%L
- * jaal-agent
+ * jaal
  * %%
  * Copyright (C) 2015 JCooky
  * %%
@@ -23,7 +23,14 @@ package com.github.jcooky.jaal.common.invocation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+/**
+ * <p>DefaultInvocationHandler class.</p>
+ *
+ * @author JCooky
+ * @version $Id: $Id
+ */
 public class DefaultInvocationHandler implements InvocationHandler {
+    /** {@inheritDoc} */
     @Override
     public Object invoke(Object self, Method method, Object[] args) throws Throwable {
       try {
