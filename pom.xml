@@ -77,7 +77,7 @@
       <artifactId>asm-all</artifactId>
       <version>[5.0, )</version>
       <classifier>sources</classifier>
-      <scope>runtime</scope>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
