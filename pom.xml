@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.jcooky</groupId>
   <artifactId>jaal</artifactId>
-  <version>0.1.2-SNAPSHOT</version>
+  <version>0.1.4-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Jaal</name>
@@ -114,19 +113,19 @@
               <tasks>
                 <copy todir="${project.build.directory}/dependency-sources">
                   <fileset dir="${project.build.directory}/dependency-sources">
-                    <include name="**/*.java"/>
+                    <include name="**/*.java" />
                   </fileset>
-                  <globmapper from="*.java" to="*.java.new"/>
+                  <globmapper from="*.java" to="*.java.new" />
                   <filterchain>
-                    <replacestring from="org.objectweb.asm" to="com.github.jcooky.jaal.org.objectweb.asm"/>
+                    <replacestring from="org.objectweb.asm" to="com.github.jcooky.jaal.org.objectweb.asm" />
                   </filterchain>
                 </copy>
                 <move todir="${project.build.directory}/generated-sources/java/com/github/jcooky/jaal">
                   <fileset dir="${project.build.directory}/dependency-sources">
-                    <include name="**/*.java.new"/>
-                    <include name="**/*.dtd"/>
+                    <include name="**/*.java.new" />
+                    <include name="**/*.dtd" />
                   </fileset>
-                  <globmapper from="*.java.new" to="*.java"/>
+                  <globmapper from="*.java.new" to="*.java" />
                 </move>
               </tasks>
             </configuration>
@@ -139,7 +138,7 @@
             </goals>
             <configuration>
               <tasks>
-                <echo message="${project.version}" file="${project.build.directory}/VERSION.txt"/>
+                <echo message="${project.version}" file="${project.build.directory}/VERSION.txt" />
               </tasks>
             </configuration>
           </execution>
