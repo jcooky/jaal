@@ -46,6 +46,7 @@ public class InjectClassVisitor extends ClassVisitor implements Constants, Opcod
   private int handlerCount;
   private Type classType;
   private GeneratorAdapter initializer;
+  private Method handlerMethod = Method.getMethod(InvocationHandler.CLASS.getName() + " getInvocationHandler()");
 
   /**
    * <p>Constructor for InjectClassVisitor.</p>
@@ -116,7 +117,7 @@ public class InjectClassVisitor extends ClassVisitor implements Constants, Opcod
 //      initializer.push(classType.getClassName());
 //      initializer.push(methodName);
 //      initializer.push(descriptor);
-    initializer.invokeStatic(factoryType, XFactory.getInvocationHandler);
+    initializer.invokeStatic(factoryType, handlerMethod);
     initializer.putStatic(classType, fieldName, InvocationHandler.TYPE);
   }
 

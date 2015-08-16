@@ -22,6 +22,7 @@ package com.github.jcooky.jaal.agent;
 
 import com.github.jcooky.jaal.agent.config.Configuration;
 import com.github.jcooky.jaal.agent.config.InjectorStrategy;
+import com.github.jcooky.jaal.agent.config.ProfilingInjectorStrategy;
 import com.github.jcooky.jaal.agent.config.ProxyInjectorStrategy;
 import com.github.jcooky.jaal.agent.criteria.MethodCriteria;
 import com.github.jcooky.jaal.agent.transformer.SelectClassFileTransformer;
@@ -62,6 +63,18 @@ public class JaalAgentBootstrap {
   public JaalAgentBootstrap setName(String name) {
     configuration.setName(name);
 
+    return this;
+  }
+
+  /**
+   * <p>addProfilingInjectorStrategy.</p>
+   *
+   * @param methodCriteria a {@link com.github.jcooky.jaal.agent.criteria.MethodCriteria} object.
+   * @param profilerFactoryClass a {@link java.lang.Class} object.
+   * @return a {@link com.github.jcooky.jaal.agent.JaalAgentBootstrap} object.
+   */
+  public JaalAgentBootstrap addProfilingInjectorStrategy(MethodCriteria methodCriteria, Class<?> profilerFactoryClass) {
+    this.addInjectorStrategy(new ProfilingInjectorStrategy(profilerFactoryClass.getName(), methodCriteria));
     return this;
   }
 

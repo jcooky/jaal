@@ -63,6 +63,22 @@ interface Constants {
     public static Type TYPE = Type.getType(CLASS);
   }
 
+  public interface ThreadState {
+    public static Class<?> CLASS = com.github.jcooky.jaal.agent.ThreadState.class;
+    public static Type TYPE = Type.getType(CLASS);
+
+    Method begin = Method.getMethod("long begin(String, int, String, String)");
+    Method end = Method.getMethod("void end(String, int, String, String, long, java.lang.Throwable)");
+  }
+
+  public interface ThreadStateFactory {
+    public static Class<?> CLASS = com.github.jcooky.jaal.agent.ThreadStateFactory.class;
+    public static Type TYPE = Type.getType(CLASS);
+
+    public static Method constructor = new Method("<init>", "(Ljava/lang/String;)V");
+    public static Method get = Method.getMethod("Object get()");
+  }
+
   public interface InvocationHandler {
 
     public static Class<?> CLASS = com.github.jcooky.jaal.common.invocation.InvocationHandler.class;
@@ -76,7 +92,4 @@ interface Constants {
     public static Method getCause = Method.getMethod(Throwable.CLASS.getName() + " getCause()");
   }
 
-  public interface XFactory {
-    public static Method getInvocationHandler = Method.getMethod(InvocationHandler.CLASS.getName() + " getInvocationHandler()");
-  }
 }

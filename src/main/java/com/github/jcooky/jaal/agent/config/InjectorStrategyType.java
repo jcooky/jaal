@@ -28,5 +28,6 @@ package com.github.jcooky.jaal.agent.config;
  */
 public enum InjectorStrategyType {
   REPLACE,
-  PROXY
+  PROXY,
+  PROFILING
 }

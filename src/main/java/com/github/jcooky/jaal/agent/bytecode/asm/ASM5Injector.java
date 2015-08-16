@@ -22,10 +22,12 @@ package com.github.jcooky.jaal.agent.bytecode.asm;
 
 import com.github.jcooky.jaal.agent.bytecode.Injector;
 import com.github.jcooky.jaal.agent.config.InjectorStrategy;
+import com.github.jcooky.jaal.agent.config.ProfilingInjectorStrategy;
 import com.github.jcooky.jaal.agent.config.ProxyInjectorStrategy;
 import com.github.jcooky.jaal.agent.config.ReplaceInjectorStrategy;
 import com.github.jcooky.jaal.agent.criteria.MethodCriteria;
 
+import com.github.jcooky.jaal.agent.criteria.Restrictions;
 import com.github.jcooky.jaal.org.objectweb.asm.ClassVisitor;
 import com.github.jcooky.jaal.org.objectweb.asm.ClassReader;
 import com.github.jcooky.jaal.org.objectweb.asm.ClassWriter;
@@ -59,7 +61,7 @@ public class ASM5Injector implements Injector {
     ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_MAXS);
     ClassVisitor target = new CheckClassAdapter(cw, false);
 
-    SerialVersionUIDAdder serialVersionUIDAdder = new SerialVersionUIDAdder(target);
+//    SerialVersionUIDAdder serialVersionUIDAdder = new SerialVersionUIDAdder(target);
     ClassInitClassVisitor classInitClassVisitor = new ClassInitClassVisitor(target);
 
     ClassVisitor visitor = null;
@@ -69,10 +71,35 @@ public class ASM5Injector implements Injector {
         break;
       case REPLACE:
         visitor = getReplaceClassVisitor((ReplaceInjectorStrategy)this.injectorStrategy, target, target);
+        break;
+      case PROFILING:
+        visitor = getProfilingClassVisitor((ProfilingInjectorStrategy)this.injectorStrategy, target, target);
     }
-    cr.accept(visitor, 0);
+    cr.accept(visitor, ClassReader.EXPAND_FRAMES);
 
     return cw.toByteArray();
+  }
+
+  private ClassVisitor getProfilingClassVisitor(ProfilingInjectorStrategy injectorStrategy, ClassVisitor target, ClassVisitor parentVisitor) {
+    ProfilingInjectClassVisitor replaceClassVisitor = new ProfilingInjectClassVisitor(injectorStrategy, parentVisitor);
+    MethodCriteriaClassVisitor criteriaClassVisitor = new MethodCriteriaClassVisitor(replaceClassVisitor, parentVisitor);
+    ClassVisitor visitor = new IfInterfaceClassVisitor(target, criteriaClassVisitor);
+
+    criteriaClassVisitor.setCriteria(
+        Restrictions.and(new MethodCriteria() {
+          @Override
+          public boolean isMatch(String className) {
+            return !className.startsWith("java.") && !className.startsWith("com.sun.") && !className.startsWith("javax.") && !className.startsWith("sun.");
+          }
+
+          @Override
+          public boolean isMatch(String className, String methodName, String signature, long modifiers) {
+            return this.isMatch(className);
+          }
+        }, injectorStrategy.getMethodCriteria())
+    );
+
+    return visitor;
   }
 
   private ClassVisitor getReplaceClassVisitor(ReplaceInjectorStrategy injectorStrategy, ClassVisitor interfaceClsasVisitor, ClassVisitor parentVisitor) {
