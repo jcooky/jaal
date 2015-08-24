@@ -12,7 +12,7 @@ public class ProfilerFactory {
   public static Profiler getProfiler() {
     return new Profiler() {
 
-      public void begin(ClassType owner, MethodType method, long startTime) {
+      public void begin(ClassType owner, MethodType method) {
         System.out.println("test1");
       }
 

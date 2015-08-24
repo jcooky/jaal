@@ -86,7 +86,7 @@ public class ASM5ProfilingTest {
     str = (String) cls.getMethod("method", boolean.class).invoke(null, false);
     assertThat(str, is("Test"));
 
-    verify(ProfilerFactory.PROFILER, times(3)).begin(any(ClassType.class), any(MethodType.class), anyLong());
+    verify(ProfilerFactory.PROFILER, times(3)).begin(any(ClassType.class), any(MethodType.class));
     verify(ProfilerFactory.PROFILER, times(3)).end(any(ClassType.class), any(MethodType.class), anyLong(), any(Throwable.class), anyLong());
   }
 
