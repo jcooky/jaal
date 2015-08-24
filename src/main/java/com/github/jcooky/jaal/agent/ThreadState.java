@@ -38,14 +38,12 @@ public class ThreadState {
    * @return a long.
    */
   public long begin(String className, int access, String methodName, String descriptor) {
-    long startTime = System.nanoTime();
 
     profiler.begin(new ClassType(className.substring(0, className.lastIndexOf('.')), className.substring(className.lastIndexOf('.')+1)),
-        new MethodType(access, methodName, descriptor),
-        startTime
+        new MethodType(access, methodName, descriptor)
     );
 
-    return startTime;
+    return System.nanoTime();
   }
 
   /**

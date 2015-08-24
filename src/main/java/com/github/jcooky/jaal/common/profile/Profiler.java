@@ -12,9 +12,8 @@ public interface Profiler {
    *
    * @param owner a {@link com.github.jcooky.jaal.common.profile.ClassType} object.
    * @param method a {@link com.github.jcooky.jaal.common.profile.MethodType} object.
-   * @param startTime a long.
    */
-  void begin(ClassType owner, MethodType method, long startTime);
+  void begin(ClassType owner, MethodType method);
   /**
    * <p>end.</p>
    *
