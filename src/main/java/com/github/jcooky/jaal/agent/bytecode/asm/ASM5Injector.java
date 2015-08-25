@@ -110,7 +110,8 @@ public class ASM5Injector implements Injector {
     criteriaClassVisitor.setCriteria(new MethodCriteria() {
       @Override
       public boolean isMatch(String className) {
-        return !className.startsWith("java.") && !className.startsWith("com.sun.") && !className.startsWith("javax.") && !className.startsWith("sun.");
+        return !className.startsWith("java.") && !className.startsWith("com.sun.") && !className.startsWith("javax.")
+            && !className.startsWith("sun.") && !className.startsWith("com.apple");
       }
 
       @Override
