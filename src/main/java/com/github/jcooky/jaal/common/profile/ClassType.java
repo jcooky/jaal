@@ -41,4 +41,22 @@ public class ClassType {
     return packageName;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    ClassType classType = (ClassType) o;
+
+    if (packageName != null ? !packageName.equals(classType.packageName) : classType.packageName != null) return false;
+    return !(name != null ? !name.equals(classType.name) : classType.name != null);
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = packageName != null ? packageName.hashCode() : 0;
+    result = 31 * result + (name != null ? name.hashCode() : 0);
+    return result;
+  }
 }

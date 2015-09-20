@@ -50,4 +50,25 @@ public class MethodType {
   public String getDescriptor() {
     return descriptor;
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    MethodType that = (MethodType) o;
+
+    if (access != that.access) return false;
+    if (name != null ? !name.equals(that.name) : that.name != null) return false;
+    return !(descriptor != null ? !descriptor.equals(that.descriptor) : that.descriptor != null);
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = access;
+    result = 31 * result + (name != null ? name.hashCode() : 0);
+    result = 31 * result + (descriptor != null ? descriptor.hashCode() : 0);
+    return result;
+  }
 }
